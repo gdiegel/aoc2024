@@ -20,8 +20,8 @@ public class Day01 {
 
     final List<String> strings = Files.readAllLines(Path.of(url.toURI()));
 
-    final ArrayList<Integer> list1 = new ArrayList<>();
-    final ArrayList<Integer> list2 = new ArrayList<>();
+    final List<Integer> list1 = new ArrayList<>();
+    final List<Integer> list2 = new ArrayList<>();
 
     for (final String string : strings) {
       final String[] split = string.split("\\s");

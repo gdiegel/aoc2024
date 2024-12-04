@@ -37,34 +37,53 @@ public class Day02 {
   }
 
   public static boolean isSafe(final List<Integer> report) {
+    return isSafe(report, false);
+  }
+
+  public static boolean isSafe(final List<Integer> report, boolean isDampened) {
     boolean isSafe = true;
 
     for (int i = 0; i < report.size(); i++) {
       if (i == 0) continue;
-      final Integer current = report.get(i);
-      final Integer last = report.get(i - 1);
+      if (i == report.size() - 1) continue;
+      final Integer lastLevel = report.get(i - 1);
+      final Integer currentLevel = report.get(i);
+      final Integer nextLevel = report.get(i + 1);
 
-      final int diff = Math.abs(current - last);
-      if (diff < 1 || diff > 3) {
-        isSafe = false;
-        break;
-      }
+      final int diffToLast = Math.abs(currentLevel - lastLevel);
+      final int diffToNext = Math.abs(nextLevel - currentLevel);
 
-      if (report.get(1) > report.get(0)) {
-        // Increasing
-        if (current < last) {
+      if (lastLevel <= currentLevel && nextLevel <= currentLevel) {
+        if (isDampened) {
           isSafe = false;
           break;
+        } else {
+          return tryDampen(new ArrayList<>(report), i - 1) || tryDampen(new ArrayList<>(report), i) || tryDampen(new ArrayList<>(report), i + 1);
         }
-      } else {
-        // Decreasing
-        if (current > report.get(i - 1)) {
+      }
+      if (lastLevel >= currentLevel && nextLevel >= currentLevel) {
+        if (isDampened) {
           isSafe = false;
           break;
+        } else {
+          return tryDampen(new ArrayList<>(report), i - 1) || tryDampen(new ArrayList<>(report), i) || tryDampen(new ArrayList<>(report), i + 1);
+        }
+      }
+      if (diffToLast < 1 || diffToLast > 3 || diffToNext < 1 || diffToNext > 3) {
+        if (isDampened) {
+          isSafe = false;
+          break;
+        } else {
+          return tryDampen(new ArrayList<>(report), i - 1) || tryDampen(new ArrayList<>(report), i) || tryDampen(new ArrayList<>(report), i + 1);
         }
       }
     }
 
     return isSafe;
+  }
+
+  private static boolean tryDampen(final List<Integer> report, int i) {
+    report.remove(i);
+    return isSafe(report, true);
   }
 }

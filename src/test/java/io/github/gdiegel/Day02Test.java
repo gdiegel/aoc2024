@@ -1,4 +1,4 @@
-package com.leagueapps;
+package io.github.gdiegel;
 
 import org.junit.jupiter.api.Test;
 

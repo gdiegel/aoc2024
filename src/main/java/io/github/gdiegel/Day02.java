@@ -1,4 +1,4 @@
-package com.leagueapps;
+package io.github.gdiegel;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

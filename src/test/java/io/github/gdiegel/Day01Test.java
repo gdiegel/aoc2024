@@ -1,12 +1,12 @@
-package com.leagueapps;
+package io.github.gdiegel;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.leagueapps.Day01.calculateDistanceBetween;
-import static com.leagueapps.Day01.calculateSimilarityOf;
+import static io.github.gdiegel.Day01.calculateDistanceBetween;
+import static io.github.gdiegel.Day01.calculateSimilarityOf;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class Day01Test {

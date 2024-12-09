@@ -16,5 +16,4 @@ class Day03Test {
 
     assertThat(sum).isEqualTo(48);
   }
-
 }

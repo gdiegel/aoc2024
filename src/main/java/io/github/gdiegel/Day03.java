@@ -22,7 +22,6 @@ public class Day03 {
     final List<String> strings = Files.readAllLines(Path.of(url.toURI()));
 
     System.out.println(processInstructions(strings));
-
   }
 
   public static int processInstructions(final List<String> instructions) {

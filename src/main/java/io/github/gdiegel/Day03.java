@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class Day03 {
 
-  private static final Pattern PATTERN = Pattern.compile("mul\\((\\d{1,3}),(\\d{1,3})\\)");
+  private static final Pattern PATTERN = Pattern.compile("do\\(\\).*(mul\\((\\d{1,3}),(\\d{1,3})\\)).*don\\'t\\(\\)");
 
   public static void main(String[] args) throws IOException, URISyntaxException {
     final URL url = Day03.class.getClassLoader().getResource("input03.txt");
@@ -40,6 +40,7 @@ public class Day03 {
 
     final Matcher matcher = PATTERN.matcher(string);
     while (matcher.find()) {
+      System.out.println(matcher.group());
       sum += Integer.parseInt(matcher.group(1)) * Integer.parseInt(matcher.group(2));
     }
 

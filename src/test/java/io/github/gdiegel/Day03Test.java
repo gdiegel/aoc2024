@@ -9,12 +9,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class Day03Test {
 
   @Test
-  void shouldReturn161ForExample() {
-    final String example = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
+  void shouldReturn48ForExample() {
+    final String example = "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))";
 
     final int sum = Day03.processInstructions(List.of(example));
 
-    assertThat(sum).isEqualTo(161);
+    assertThat(sum).isEqualTo(48);
   }
 
 }
